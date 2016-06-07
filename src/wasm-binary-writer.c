@@ -650,7 +650,8 @@ static void write_expr(WasmContext* ctx,
     case WASM_EXPR_TYPE_RETURN:
       write_expr_opt(ctx, module, func, expr->return_.expr);
       write_opcode(&ctx->stream, WASM_OPCODE_RETURN);
-      wasm_write_u8(&ctx->stream, expr->return_.expr ? 1 : 0, "return arity");
+      // todo:: make the check more generic for any expr that doesn't yield a value
+      wasm_write_u8(&ctx->stream, expr->return_.expr && expr->return_.expr->type != WASM_EXPR_TYPE_NOP ? 1 : 0, "return arity");
       break;
     case WASM_EXPR_TYPE_SELECT:
       write_expr(ctx, module, func, expr->select.true_);
