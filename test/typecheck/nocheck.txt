@@ -1,4 +1,0 @@
-;;; FLAGS: --no-check
-(module
-  (func (result i32)
-    nop))  ;;; this is a typecheck error, but succeeds because of --no-check

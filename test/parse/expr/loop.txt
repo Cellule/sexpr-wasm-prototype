@@ -1,6 +1,0 @@
-(module
-  (func
-    loop 
-      nop
-      nop
-    end))

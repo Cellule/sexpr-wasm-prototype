@@ -1,5 +1,0 @@
-;;; FLAGS: --spec
-(assert_malformed
-  (module binary
-    "\00asm\bc\0a\00\00")
-  "unknown binary version")
