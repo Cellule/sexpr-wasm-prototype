@@ -66,6 +66,7 @@ enum class TokenType {
   Register,
   Result,
   Rpar,
+  Shared,
   Start,
   Table,
   Then,
@@ -81,6 +82,10 @@ enum class TokenType {
   Last_Literal = Nat,
 
   // Tokens with Opcode data.
+  AtomicLoad,
+  AtomicRmw,
+  AtomicRmwCmpxchg,
+  AtomicStore,
   Binary,
   Block,
   Br,
@@ -115,7 +120,7 @@ enum class TokenType {
   Try,
   Unary,
   Unreachable,
-  First_Opcode = Binary,
+  First_Opcode = AtomicLoad,
   Last_Opcode = Unreachable,
 
   // Tokens with string data.
